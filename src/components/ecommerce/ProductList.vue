@@ -1,7 +1,7 @@
 <template>
   <div class="bg-white">
     <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-      <h2 class="text-2xl font-bold tracking-tight text-gray-900">Customers also purchased</h2>
+      <h2 class="text-2xl font-bold tracking-tight text-gray-900">Nuestros Productos</h2>
 
       <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
         <div v-for="product in products" :key="product.id" class="group relative">
@@ -28,14 +28,76 @@
 const products = [
   {
     id: 1,
-    name: 'Basic Tee',
+    name: 'MacBook Pro',
     href: '#',
     imageSrc: 'https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-01-related-product-01.jpg',
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: '$35',
-    color: 'Black',
+    imageAlt: "MacBook Pro con chip M2",
+    price: '$6.000.000',
+    color: 'Gris espacial',
   },
-  // More products...
+  {
+    id: 2,
+    name: 'iPhone 16 Pro',
+    href: '#',
+    imageSrc: 'https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-01-related-product-02.jpg',
+    imageAlt: "iPhone 16 Pro con cámara avanzada",
+    price: '$5.700.000',
+    color: 'Oro rosa',
+  },
+  {
+    id: 3,
+    name: 'AirPods Pro',
+    href: '#',
+    imageSrc: 'https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-01-related-product-03.jpg',
+    imageAlt: "AirPods Pro con cancelación de ruido",
+    price: '$1.200.000',
+    color: 'Blanco',
+  },
+  {
+    id: 4,
+    name: 'iPad Air',
+    href: '#',
+    imageSrc: 'https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-01-related-product-04.jpg',
+    imageAlt: "iPad Air con pantalla Retina",
+    price: '$3.500.000',
+    color: 'Plata',
+  },
+  {
+    id: 5,
+    name: 'Apple Watch Series 9',
+    href: '#',
+    imageSrc: 'https://tailwindcss.com/plus-assets/img/ecommerce-images/category-page-04-image-card-01.jpg',
+    imageAlt: "Apple Watch Series 9",
+    price: '$2.800.000',
+    color: 'Negro',
+  },
+  {
+    id: 6,
+    name: 'iMac 24"',
+    href: '#',
+    imageSrc: 'https://tailwindcss.com/plus-assets/img/ecommerce-images/category-page-04-image-card-02.jpg',
+    imageAlt: "iMac de 24 pulgadas",
+    price: '$7.500.000',
+    color: 'Azul',
+  },
+  {
+    id: 7,
+    name: 'Mac mini',
+    href: '#',
+    imageSrc: 'https://tailwindcss.com/plus-assets/img/ecommerce-images/category-page-04-image-card-03.jpg',
+    imageAlt: "Mac mini con chip M2",
+    price: '$4.200.000',
+    color: 'Gris espacial',
+  },
+  {
+    id: 8,
+    name: 'HomePod mini',
+    href: '#',
+    imageSrc: 'https://tailwindcss.com/plus-assets/img/ecommerce-images/category-page-04-image-card-04.jpg',
+    imageAlt: "HomePod mini con Siri",
+    price: '$800.000',
+    color: 'Naranja',
+  }
 ]
 </script>
 

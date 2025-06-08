@@ -1,15 +1,14 @@
 <template>
-  <TheHeader @toggle-shopping-cart="toggleShoppingCart" />
+  <Header @toggle-shopping-cart="toggleShoppingCart" />
   <ShoppingCart :is-visible="showShoppingCart" @close="toggleShoppingCart" />
-  <ProductShowcase />
+  <router-view />
 </template>
 
 
 <script setup>
 import { ref } from 'vue'
-import TheHeader from './components/ecommerce/TheHeader.vue'
+import Header from './components/ecommerce/Header.vue'
 import ShoppingCart from './components/ecommerce/ShoppingCart.vue'
-import ProductShowcase from './components/ecommerce/ProductShowcase.vue'
 
 const showShoppingCart = ref(false)
 

@@ -13,7 +13,7 @@
             </div>
             <div class="@container relative min-h-120 w-full grow max-lg:mx-auto max-lg:max-w-sm">
               <div class="absolute inset-x-10 top-10 bottom-0 overflow-hidden rounded-t-[8cqw]">
-                <img class="size-full object-cover object-top" src="../../assets/IMG_7127.PNG" alt="" />
+                <img class="size-full object-cover object-top" src="../../assets/home/HomeCell.PNG" alt="" />
               </div>
             </div>
           </div>
@@ -27,7 +27,7 @@
               <p class="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit maiores impedit.</p>
             </div>
             <div class="flex flex-1 items-center justify-center px-8 max-lg:pt-10 max-lg:pb-12 sm:px-10 lg:pb-2">
-              <img class="w-full max-lg:max-w-xs" src="../../assets/stefen-tan-KYw1eUx1J7Y-unsplash%20(1).png" alt="" />
+              <img class="w-full max-lg:max-w-xs" src="../../assets/home/Teclado.png" alt="" />
             </div>
           </div>
           <div class="pointer-events-none absolute inset-px rounded-lg shadow-sm ring-1 ring-black/5 max-lg:rounded-t-4xl" />
@@ -54,7 +54,7 @@
             </div>
             <div class="@container relative min-h-120 w-full grow max-lg:mx-auto max-lg:max-w-sm">
               <div class="absolute top-10 right-0 bottom-0 left-10 overflow-hidden rounded-tl-xl bg-gray-900 shadow-2xl">
-                <img class="size-full object-cover object-top" src="../../assets/adrian-regeci-KfEAduS-4XQ-unsplash%20(1).jpg" alt="" />
+                <img class="size-full object-cover object-top" src="../../assets/home/BannerMac.jpg" alt="" />
               </div>
             </div>
           </div>

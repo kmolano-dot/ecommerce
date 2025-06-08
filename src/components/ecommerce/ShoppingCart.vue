@@ -111,7 +111,7 @@ const products = [
     color: 'Gris espacial',
     price: '$6.000.000',
     quantity: 1,
-    imageSrc: 'src/assets/mac.webp',
+    imageSrc: 'src/assets/Mac.webp',
     imageAlt: 'Macbook Pro with M2 chip.',
   },
   {
@@ -121,7 +121,7 @@ const products = [
     color: 'Oro rosa',
     price: '$5.700.000',
     quantity: 1,
-    imageSrc: 'src/assets/iphone.webp',
+    imageSrc: 'src/assets/IIphone.webp',
     imageAlt: 'Latest iPhone model with advanced camera system.',
   },
   // More products can be added here
