@@ -409,11 +409,120 @@ export const useProductStore = defineStore('products', {
       }
     ]
   }),
-  
+
   getters: {
     getAllProducts: (state) => state.products,
     getProductById: (state) => (id) => {
       return state.products.find(product => product.id === parseInt(id))
+    },
+
+    // Nuevo getter para obtener productos filtrados
+    getFilteredProducts: (state) => (filters) => {
+      let filteredProducts = [...state.products]
+
+      // Filtrar por categorías
+      if (filters.categories && filters.categories.length > 0) {
+        filteredProducts = filteredProducts.filter(product => {
+          // Buscar en breadcrumbs para encontrar la categoría
+          return product.breadcrumbs.some(breadcrumb => {
+            const category = breadcrumb.name.toLowerCase()
+            return filters.categories.some(selectedCategory => {
+              // Mapear los valores de filtro a las categorías reales
+              if (selectedCategory === 'computadoras' && category === 'computadoras') return true
+              if (selectedCategory === 'telefonos' && category === 'teléfonos') return true
+              if (selectedCategory === 'audio' && category === 'audio') return true
+              if (selectedCategory === 'tablets' && category === 'tablets') return true
+              if (selectedCategory === 'wearables' && category === 'wearables') return true
+              return false
+            })
+          })
+        })
+      }
+
+      // Filtrar por colores
+      if (filters.colors && filters.colors.length > 0) {
+        filteredProducts = filteredProducts.filter(product => {
+          const productColor = product.color.toLowerCase()
+          return filters.colors.some(selectedColor => {
+            // Mapear los valores de filtro a los colores reales
+            if (selectedColor === 'gris-espacial' && productColor === 'gris espacial') return true
+            if (selectedColor === 'plata' && productColor === 'plata') return true
+            if (selectedColor === 'oro-rosa' && productColor === 'oro rosa') return true
+            if (selectedColor === 'azul' && productColor.includes('azul')) return true
+            if (selectedColor === 'verde' && productColor === 'verde') return true
+            if (selectedColor === 'blanco' && productColor === 'blanco') return true
+            if (selectedColor === 'negro' && productColor === 'negro') return true
+            if (selectedColor === 'naranja' && productColor === 'naranja') return true
+            return false
+          })
+        })
+      }
+
+      // Filtrar por tamaños (almacenamiento)
+      if (filters.sizes && filters.sizes.length > 0) {
+        filteredProducts = filteredProducts.filter(product => {
+          // Verificar si el producto tiene tamaños
+          if (!product.sizes || product.sizes.length === 0) return false
+
+          return product.sizes.some(size => {
+            const sizeName = size.name.toLowerCase()
+            return filters.sizes.some(selectedSize => {
+              // Mapear los valores de filtro a los tamaños reales
+              if (selectedSize === '128gb' && sizeName === '128gb') return true
+              if (selectedSize === '256gb' && sizeName === '256gb') return true
+              if (selectedSize === '512gb' && sizeName === '512gb') return true
+              if (selectedSize === '1tb' && sizeName === '1tb') return true
+              if (selectedSize === '2tb' && sizeName === '2tb') return true
+              return false
+            })
+          })
+        })
+      }
+
+      // Filtrar por rango de precio
+      if (filters.priceRanges && filters.priceRanges.length > 0) {
+        filteredProducts = filteredProducts.filter(product => {
+          // Convertir el precio de formato "$X.XXX.XXX" a número
+          const price = parseFloat(product.price.replace('$', '').replace(/\./g, '').replace(',', '.'))
+
+          return filters.priceRanges.some(range => {
+            if (range === '0-1000000' && price < 1000000) return true
+            if (range === '1000000-3000000' && price >= 1000000 && price < 3000000) return true
+            if (range === '3000000-5000000' && price >= 3000000 && price < 5000000) return true
+            if (range === '5000000-7000000' && price >= 5000000 && price < 7000000) return true
+            if (range === '7000000-plus' && price >= 7000000) return true
+            return false
+          })
+        })
+      }
+
+      // Ordenar productos
+      if (filters.sortOption) {
+        switch (filters.sortOption) {
+          case 'price-asc':
+            filteredProducts.sort((a, b) => {
+              const priceA = parseFloat(a.price.replace('$', '').replace(/\./g, '').replace(',', '.'))
+              const priceB = parseFloat(b.price.replace('$', '').replace(/\./g, '').replace(',', '.'))
+              return priceA - priceB
+            })
+            break
+          case 'price-desc':
+            filteredProducts.sort((a, b) => {
+              const priceA = parseFloat(a.price.replace('$', '').replace(/\./g, '').replace(',', '.'))
+              const priceB = parseFloat(b.price.replace('$', '').replace(/\./g, '').replace(',', '.'))
+              return priceB - priceA
+            })
+            break
+          case 'newest':
+            // Ordenar por ID (asumiendo que IDs más altos son productos más nuevos)
+            filteredProducts.sort((a, b) => b.id - a.id)
+            break
+          // Para 'popular' y 'rating', mantenemos el orden predeterminado por ahora
+          // En una aplicación real, estos tendrían su propia lógica de ordenamiento
+        }
+      }
+
+      return filteredProducts
     }
   }
 })

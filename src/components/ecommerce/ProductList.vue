@@ -25,12 +25,41 @@
 </template>
 
 <script setup>
+import { ref, computed, watch } from 'vue'
 import { useProductStore } from '@/stores/products.js'
 import { storeToRefs } from 'pinia'
 
+const props = defineProps({
+  filters: {
+    type: Object,
+    default: () => ({
+      categories: [],
+      colors: [],
+      sizes: [],
+      priceRanges: [],
+      sortOption: 'popular'
+    })
+  }
+})
+
 const productStore = useProductStore()
 const { getAllProducts } = storeToRefs(productStore)
-const products = getAllProducts
+
+// Productos filtrados basados en los filtros aplicados
+const products = computed(() => {
+  if (!props.filters || 
+      (props.filters.categories.length === 0 && 
+       props.filters.colors.length === 0 && 
+       props.filters.sizes.length === 0 && 
+       props.filters.priceRanges.length === 0 && 
+       props.filters.sortOption === 'popular')) {
+    // Si no hay filtros aplicados, mostrar todos los productos
+    return getAllProducts.value
+  }
+
+  // Aplicar filtros
+  return productStore.getFilteredProducts(props.filters)
+})
 </script>
 
 <style scoped>
