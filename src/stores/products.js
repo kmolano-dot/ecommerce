@@ -7,7 +7,7 @@ export const useProductStore = defineStore('products', {
         id: 1,
         name: 'MacBook Pro',
         href: '/product/1',
-        imageSrc: 'https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-01-related-product-01.jpg',
+        imageSrc: 'https://co.tiendasishop.com/cdn/shop/files/IMG-15363188_6c224530-3a5d-4bbe-bad6-da8971c80e36.jpg?v=1730306656&width=823',
         imageAlt: "MacBook Pro con chip M2",
         price: '$6.000.000',
         color: 'Gris espacial',
@@ -22,19 +22,19 @@ export const useProductStore = defineStore('products', {
         details: 'La MacBook Pro está diseñada para los profesionales que quieren cambiar el mundo. Ahora más potente que nunca con el chip M2 de Apple, ofrece un rendimiento excepcional para tareas exigentes como edición de fotos y videos, compilación de código y creación de música.',
         images: [
           {
-            src: 'https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-01-related-product-01.jpg',
+            src: 'https://co.tiendasishop.com/cdn/shop/files/IMG-15363193_438b6b1a-fb0a-4bb7-8c73-3500d9221739.jpg?v=1740438705&width=823',
             alt: 'MacBook Pro vista frontal.',
           },
           {
-            src: 'https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-02-tertiary-product-shot-01.jpg',
+            src: 'https://co.tiendasishop.com/cdn/shop/files/IMG-15363189_39437760-760e-4199-af33-58cf83a250a4.jpg?v=1730306656&width=823',
             alt: 'MacBook Pro vista lateral.',
           },
           {
-            src: 'https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-02-tertiary-product-shot-02.jpg',
+            src: 'https://co.tiendasishop.com/cdn/shop/files/IMG-15363188_6c224530-3a5d-4bbe-bad6-da8971c80e36.jpg?v=1730306656&width=823',
             alt: 'MacBook Pro vista desde arriba.',
           },
           {
-            src: 'https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-02-featured-product-shot.jpg',
+            src: 'https://co.tiendasishop.com/cdn/shop/files/IMG-15363190_4696f59e-879c-410f-9a21-574a89758466.jpg?v=1730306659&width=823',
             alt: 'MacBook Pro en uso.',
           },
         ],
@@ -57,7 +57,7 @@ export const useProductStore = defineStore('products', {
         id: 2,
         name: 'iPhone 16 Pro',
         href: '/product/2',
-        imageSrc: 'https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-01-related-product-02.jpg',
+        imageSrc: 'https://co.tiendasishop.com/cdn/shop/files/IMG-14858951.jpg?v=1726245431&width=713',
         imageAlt: "iPhone 16 Pro con cámara avanzada",
         price: '$5.700.000',
         color: 'Oro rosa',
@@ -72,19 +72,19 @@ export const useProductStore = defineStore('products', {
         details: 'El iPhone 16 Pro está diseñado con los materiales más resistentes, incluyendo el Ceramic Shield frontal, más duro que cualquier vidrio de smartphone. Es resistente al agua hasta 6 metros durante 30 minutos y está protegido contra salpicaduras, agua y polvo.',
         images: [
           {
-            src: 'https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-01-related-product-02.jpg',
+            src: 'https://co.tiendasishop.com/cdn/shop/files/IMG-14858955.jpg?v=1726245431&width=713',
             alt: 'iPhone 16 Pro vista frontal.',
           },
           {
-            src: 'https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-02-tertiary-product-shot-01.jpg',
+            src: 'https://i.ibb.co/35KGGcBR/2-ba0d1bd7.png',
             alt: 'iPhone 16 Pro vista lateral.',
           },
           {
-            src: 'https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-02-tertiary-product-shot-02.jpg',
+            src: 'https://i.ibb.co/0pKbWmRb/1-ba0d1bd7.png',
             alt: 'iPhone 16 Pro vista desde arriba.',
           },
           {
-            src: 'https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-02-featured-product-shot.jpg',
+            src: 'https://co.tiendasishop.com/cdn/shop/files/iPhone_16_Pro_White_Titanium_PDP_Image_Position_6__GENS.jpg?v=1744812053&width=713',
             alt: 'iPhone 16 Pro en uso.',
           },
         ],

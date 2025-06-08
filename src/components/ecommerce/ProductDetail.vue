@@ -19,12 +19,12 @@
 
       <!-- Image gallery -->
       <div class="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
-        <img :src="product.images[0].src" :alt="product.images[0].alt" class="hidden size-full rounded-lg object-cover lg:block" />
+        <img :src="product.images[0].src" :alt="product.images[0].alt" class="hidden size-full rounded-lg object-cover lg:block object-scale-down" />
         <div class="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
           <img :src="product.images[1].src" :alt="product.images[1].alt" class="aspect-3/2 w-full rounded-lg object-cover" />
           <img :src="product.images[2].src" :alt="product.images[2].alt" class="aspect-3/2 w-full rounded-lg object-cover" />
         </div>
-        <img :src="product.images[3].src" :alt="product.images[3].alt" class="aspect-4/5 size-full object-cover sm:rounded-lg lg:aspect-auto" />
+        <img :src="product.images[3].src" :alt="product.images[3].alt" class="aspect-4/5 size-full object-cover sm:rounded-lg lg:aspect-auto object-scale-down" />
       </div>
 
       <!-- Product info -->
