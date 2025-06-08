@@ -1,18 +1,14 @@
 <template>
-  <Header @toggle-shopping-cart="toggleShoppingCart" />
-  <ShoppingCart :is-visible="showShoppingCart" @close="toggleShoppingCart" />
+  <Header @toggle-shopping-cart="uiStore.toggleShoppingCart" />
+  <ShoppingCart :is-visible="uiStore.showShoppingCart" @close="uiStore.toggleShoppingCart" />
   <router-view />
 </template>
 
 
 <script setup>
-import { ref } from 'vue'
+import { useUiStore } from './stores/uiStore'
 import Header from './components/ecommerce/Header.vue'
 import ShoppingCart from './components/ecommerce/ShoppingCart.vue'
 
-const showShoppingCart = ref(false)
-
-const toggleShoppingCart = () => {
-  showShoppingCart.value = !showShoppingCart.value
-}
+const uiStore = useUiStore()
 </script>

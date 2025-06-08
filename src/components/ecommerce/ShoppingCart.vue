@@ -46,7 +46,7 @@
                                   <p class="text-gray-500">Cantidad {{ product.quantity }}</p>
 
                                   <div class="flex">
-                                    <button type="button" class="font-medium text-indigo-600 hover:text-indigo-500">Quitar</button>
+                                    <button type="button" class="font-medium text-indigo-600 hover:text-indigo-500" @click="removeFromCart(product.id)">Quitar</button>
                                   </div>
                                 </div>
                               </div>
@@ -59,7 +59,7 @@
                     <div class="border-t border-gray-200 px-4 py-6 sm:px-6">
                       <div class="flex justify-between text-base font-medium text-gray-900">
                         <p>Subtotal</p>
-                        <p>$11.700.000</p>
+                        <p>{{ formattedSubtotal }}</p>
                       </div>
                       <p class="mt-0.5 text-sm text-gray-500">Gastos de envío e impuestos ya calculados.</p>
                       <div class="mt-6">
@@ -89,6 +89,8 @@
 <script setup>
 import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
 import { XMarkIcon } from '@heroicons/vue/24/outline'
+import { useCartStore } from '@/stores/cart'
+import { storeToRefs } from 'pinia'
 
 const props = defineProps({
   isVisible: {
@@ -103,27 +105,7 @@ const closeCart = () => {
   emit('close')
 }
 
-const products = [
-  {
-    id: 1,
-    name: 'Macbook Pro',
-    href: '#',
-    color: 'Gris espacial',
-    price: '$6.000.000',
-    quantity: 1,
-    imageSrc: 'src/assets/Mac.webp',
-    imageAlt: 'Macbook Pro with M2 chip.',
-  },
-  {
-    id: 2,
-    name: 'Iphone 16 Pro',
-    href: '#',
-    color: 'Oro rosa',
-    price: '$5.700.000',
-    quantity: 1,
-    imageSrc: 'src/assets/Iphone.webp',
-    imageAlt: 'Latest iPhone model with advanced camera system.',
-  },
-  // More products can be added here
-]
+const cartStore = useCartStore()
+const { items: products, formattedSubtotal } = storeToRefs(cartStore)
+const { removeFromCart } = cartStore
 </script>

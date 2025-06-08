@@ -90,7 +90,7 @@
               </fieldset>
             </div>
 
-            <button type="submit" class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-hidden">Add to bag</button>
+            <button type="button" @click="addToBag" class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-hidden">Agregar al carrito</button>
           </form>
         </div>
 
@@ -134,6 +134,8 @@ import { ref, computed } from 'vue'
 import { StarIcon } from '@heroicons/vue/20/solid'
 import { RadioGroup, RadioGroupOption } from '@headlessui/vue'
 import { useProductStore } from '@/stores/products.js'
+import { useCartStore } from '@/stores/cart'
+import { useUiStore } from '@/stores/uiStore'
 
 const props = defineProps({
   productId: {
@@ -160,4 +162,22 @@ const reviews = { href: '#', average: 4, totalCount: 117 }
 
 const selectedColor = ref(product.value.colors && product.value.colors.length > 0 ? product.value.colors[0] : null)
 const selectedSize = ref(product.value.sizes && product.value.sizes.length > 0 ? product.value.sizes.find(size => size.inStock) : null)
+
+const cartStore = useCartStore()
+const uiStore = useUiStore()
+
+const addToBag = () => {
+  if (product.value.id) {
+    // Agregar producto al carrito y verificar si es el primer producto
+    const isFirstItem = cartStore.addToCart(product.value)
+
+    // Hacer scroll suave hacia arriba
+    uiStore.scrollToTop()
+
+    // Abrir el carrito solo si es el primer producto
+    if (isFirstItem) {
+      uiStore.openShoppingCart()
+    }
+  }
+}
 </script>
