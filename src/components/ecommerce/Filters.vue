@@ -51,7 +51,18 @@
         </div>
 
         <div class="flex items-center">
-          <!-- Espacio vacío para mantener la estructura justify-between -->
+          <div class="relative rounded-md shadow-sm">
+            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+              <MagnifyingGlassIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
+            </div>
+            <input
+              type="text"
+              v-model="searchTerm"
+              @input="handleSearch"
+              class="block w-64 rounded-md border-0 py-1.5 pl-10 pr-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-sm leading-6"
+              placeholder="Buscar productos"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -266,7 +277,7 @@ import {
   TransitionRoot
 } from '@headlessui/vue'
 import { ChevronDownIcon } from '@heroicons/vue/20/solid'
-import { FunnelIcon, XMarkIcon } from '@heroicons/vue/24/outline'
+import { FunnelIcon, XMarkIcon, MagnifyingGlassIcon } from '@heroicons/vue/24/outline'
 
 // Estado para controlar la visibilidad del panel de filtros
 const showFiltersPanel = ref(false)
@@ -334,6 +345,7 @@ const selectedColors = ref([])
 const selectedSizes = ref([])
 const selectedPriceRanges = ref([])
 const selectedSortOption = ref(sortOptions[0])
+const searchTerm = ref('')
 
 // Estado temporal para los filtros en el panel (no aplicados hasta hacer clic en "Aplicar")
 const tempFilters = reactive({
@@ -459,6 +471,11 @@ const clearTempFilters = () => {
   tempFilters.priceRanges = []
 }
 
+// Función para manejar la búsqueda
+const handleSearch = () => {
+  emitFilterChange()
+}
+
 // Emitir evento cuando cambian los filtros
 const emit = defineEmits(['filter-change'])
 
@@ -468,7 +485,8 @@ const emitFilterChange = () => {
     colors: selectedColors.value,
     sizes: selectedSizes.value,
     priceRanges: selectedPriceRanges.value,
-    sortOption: selectedSortOption.value.value
+    sortOption: selectedSortOption.value.value,
+    searchTerm: searchTerm.value
   })
 }
 </script>

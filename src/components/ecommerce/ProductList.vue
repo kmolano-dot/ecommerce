@@ -37,7 +37,8 @@ const props = defineProps({
       colors: [],
       sizes: [],
       priceRanges: [],
-      sortOption: 'popular'
+      sortOption: 'popular',
+      searchTerm: ''
     })
   }
 })
@@ -52,7 +53,8 @@ const products = computed(() => {
        props.filters.colors.length === 0 && 
        props.filters.sizes.length === 0 && 
        props.filters.priceRanges.length === 0 && 
-       props.filters.sortOption === 'popular')) {
+       props.filters.sortOption === 'popular' &&
+       (!props.filters.searchTerm || props.filters.searchTerm.trim() === ''))) {
     // Si no hay filtros aplicados, mostrar todos los productos
     return getAllProducts.value
   }

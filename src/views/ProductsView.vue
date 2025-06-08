@@ -16,7 +16,8 @@ const filters = ref({
   colors: [],
   sizes: [],
   priceRanges: [],
-  sortOption: 'popular'
+  sortOption: 'popular',
+  searchTerm: ''
 })
 
 // Actualizar los filtros cuando cambian

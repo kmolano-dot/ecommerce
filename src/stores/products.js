@@ -420,6 +420,15 @@ export const useProductStore = defineStore('products', {
     getFilteredProducts: (state) => (filters) => {
       let filteredProducts = [...state.products]
 
+      // Filtrar por término de búsqueda
+      if (filters.searchTerm && filters.searchTerm.trim() !== '') {
+        const searchTermLower = filters.searchTerm.trim().toLowerCase()
+        filteredProducts = filteredProducts.filter(product => 
+          product.name.toLowerCase().includes(searchTermLower) ||
+          product.description.toLowerCase().includes(searchTermLower)
+        )
+      }
+
       // Filtrar por categorías
       if (filters.categories && filters.categories.length > 0) {
         filteredProducts = filteredProducts.filter(product => {
