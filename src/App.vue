@@ -46,10 +46,143 @@
           </transition>
         </Popover>
 
-<!--        <a href="#" class="text-sm/6 font-semibold text-gray-900">Features</a>-->
-<!--        <a href="#" class="text-sm/6 font-semibold text-gray-900">Marketplace</a>-->
-<!--        <a href="#" class="text-sm/6 font-semibold text-gray-900">Company</a>-->
+        <a href="#" class="text-sm/6 font-semibold text-gray-900">Features</a>
+        <a href="#" class="text-sm/6 font-semibold text-gray-900">Marketplace</a>
+        <a href="#" class="text-sm/6 font-semibold text-gray-900" @click.prevent="toggleShoppingCart">Company</a>
+        <svg @click.prevent="toggleShoppingCart" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M7 18c-1.104 0-1.99.896-1.99 2s.886 2 1.99 2 2-.896 2-2-.896-2-2-2zm10 0c-1.104 0-1.99.896-1.99 2s.886 2 1.99 2 2-.896 2-2-.896-2-2-2zM7.16 13l.94 2h9.18c.76 0 1.43-.43 1.75-1.1l3.6-7.59c.08-.14.12-.3.12-.46 0-.55-.45-1-1-1H5.21L4.27 2H1v2h2l3.6 7.59-.95 1.72C5.23 13.37 5 14 5 14.66V16h2v-1.34c0-.12.04-.23.1-.32l.06-.1h9.44l-1.1 2H8.03l-.87-1.8-.68-1.26-.35-.6-.97-1.74z"/>
+        </svg>
+
       </PopoverGroup>
+      <div id="shopping-car" v-if="showShoppingCart">
+        <button class="rounded-md bg-gray-950/5 px-2.5 py-1.5 text-sm font-semibold text-gray-900 hover:bg-gray-950/10">Open drawer</button>
+
+        <div class="relative z-10" aria-labelledby="drawer-title" role="dialog" aria-modal="true">
+          <!--
+            Background backdrop, show/hide based on slide-over state.
+
+            Entering: "ease-in-out duration-500"
+              From: "opacity-0"
+              To: "opacity-100"
+            Leaving: "ease-in-out duration-500"
+              From: "opacity-100"
+              To: "opacity-0"
+          -->
+          <div class="fixed inset-0 bg-gray-500/75 transition-opacity" aria-hidden="true"></div>
+
+          <div class="fixed inset-0 overflow-hidden">
+            <div class="absolute inset-0 overflow-hidden">
+              <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10 sm:pl-16">
+                <!--
+                  Slide-over panel, show/hide based on slide-over state.
+
+                  Entering: "transform transition ease-in-out duration-500 sm:duration-700"
+                    From: "translate-x-full"
+                    To: "translate-x-0"
+                  Leaving: "transform transition ease-in-out duration-500 sm:duration-700"
+                    From: "translate-x-0"
+                    To: "translate-x-full"
+                -->
+                <div class="pointer-events-auto w-screen max-w-md">
+                  <div class="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
+                    <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
+                      <div class="flex items-start justify-between">
+                        <h2 class="text-lg font-medium text-gray-900" id="drawer-title">Shopping cart</h2>
+                        <div class="ml-3 flex h-7 items-center">
+                          <button type="button" class="relative -m-2 p-2 text-gray-400 hover:text-gray-500" @click="toggleShoppingCart">
+                            <span class="absolute -inset-0.5"></span>
+                            <span class="sr-only">Close panel</span>
+                            <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+
+                      <div class="mt-8">
+                        <div class="flow-root">
+                          <ul role="list" class="-my-6 divide-y divide-gray-200">
+                            <li class="flex py-6">
+                              <div class="size-24 shrink-0 overflow-hidden rounded-md border border-gray-200">
+                                <img src="./assets/mac.webp" alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt." class="size-full object-cover">
+                              </div>
+
+                              <div class="ml-4 flex flex-1 flex-col">
+                                <div>
+                                  <div class="flex justify-between text-base font-medium text-gray-900">
+                                    <h3>
+                                      <a href="#">Macbook Pro</a>
+                                    </h3>
+                                    <p class="ml-4">$6.000.000</p>
+                                  </div>
+                                  <p class="mt-1 text-sm text-gray-500">Gris espacial</p>
+                                </div>
+                                <div class="flex flex-1 items-end justify-between text-sm">
+                                  <p class="text-gray-500">Cantidad 1</p>
+
+                                  <div class="flex">
+                                    <button type="button" class="font-medium text-indigo-600 hover:text-indigo-500">Quitar</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="flex py-6">
+                              <div class="size-24 shrink-0 overflow-hidden rounded-md border border-gray-200">
+                                <img src="./assets/iphone.webp" alt="Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch." class="size-full object-cover">
+                              </div>
+
+                              <div class="ml-4 flex flex-1 flex-col">
+                                <div>
+                                  <div class="flex justify-between text-base font-medium text-gray-900">
+                                    <h3>
+                                      <a href="#">Iphone 16 Pro</a>
+                                    </h3>
+                                    <p class="ml-4">$5.700.000</p>
+                                  </div>
+                                  <p class="mt-1 text-sm text-gray-500">Oro rosa</p>
+                                </div>
+                                <div class="flex flex-1 items-end justify-between text-sm">
+                                  <p class="text-gray-500">Cantidad 1</p>
+
+                                  <div class="flex">
+                                    <button type="button" class="font-medium text-indigo-600 hover:text-indigo-500">Quitar</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+
+                            <!-- More products... -->
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="border-t border-gray-200 px-4 py-6 sm:px-6">
+                      <div class="flex justify-between text-base font-medium text-gray-900">
+                        <p>Subtotal</p>
+                        <p>$10.700.000</p>
+                      </div>
+                      <p class="mt-0.5 text-sm text-gray-500">Gantos de envio e impuestos ya calculados.</p>
+                      <div class="mt-6">
+                        <a href="#" class="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-xs hover:bg-indigo-700">Pagar</a>
+                      </div>
+                      <div class="mt-6 flex justify-center text-center text-sm text-gray-500">
+                        <p>
+                          o
+                          <button type="button" class="font-medium text-indigo-600 hover:text-indigo-500">
+                            Continuar comprando
+                            <span aria-hidden="true"> &rarr;</span>
+                          </button>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="hidden lg:flex lg:flex-1 lg:justify-end">
         <a href="#" class="text-sm/6 font-semibold text-gray-900">Log in <span aria-hidden="true">&rarr;</span></a>
       </div>
@@ -81,7 +214,7 @@
               </Disclosure>
               <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Features</a>
               <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Marketplace</a>
-              <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Company</a>
+              <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50" @click.prevent="toggleShoppingCart">Company</a>
             </div>
             <div class="py-6">
               <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Log in</a>
@@ -208,6 +341,11 @@ const callsToAction = [
 ]
 
 const mobileMenuOpen = ref(false)
+const showShoppingCart = ref(false)
+
+const toggleShoppingCart = () => {
+  showShoppingCart.value = !showShoppingCart.value
+}
 
 const productsList = [
   {
