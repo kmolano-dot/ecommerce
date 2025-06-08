@@ -9,10 +9,10 @@
           <div class="mt-4 flex justify-between">
             <div>
               <h3 class="text-sm text-gray-700">
-                <a :href="product.href">
+                <router-link :to="`/product/${product.id}`">
                   <span aria-hidden="true" class="absolute inset-0" />
                   {{ product.name }}
-                </a>
+                </router-link>
               </h3>
               <p class="mt-1 text-sm text-gray-500">{{ product.color }}</p>
             </div>
@@ -25,80 +25,12 @@
 </template>
 
 <script setup>
-const products = [
-  {
-    id: 1,
-    name: 'MacBook Pro',
-    href: '#',
-    imageSrc: 'https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-01-related-product-01.jpg',
-    imageAlt: "MacBook Pro con chip M2",
-    price: '$6.000.000',
-    color: 'Gris espacial',
-  },
-  {
-    id: 2,
-    name: 'iPhone 16 Pro',
-    href: '#',
-    imageSrc: 'https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-01-related-product-02.jpg',
-    imageAlt: "iPhone 16 Pro con cámara avanzada",
-    price: '$5.700.000',
-    color: 'Oro rosa',
-  },
-  {
-    id: 3,
-    name: 'AirPods Pro',
-    href: '#',
-    imageSrc: 'https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-01-related-product-03.jpg',
-    imageAlt: "AirPods Pro con cancelación de ruido",
-    price: '$1.200.000',
-    color: 'Blanco',
-  },
-  {
-    id: 4,
-    name: 'iPad Air',
-    href: '#',
-    imageSrc: 'https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-01-related-product-04.jpg',
-    imageAlt: "iPad Air con pantalla Retina",
-    price: '$3.500.000',
-    color: 'Plata',
-  },
-  {
-    id: 5,
-    name: 'Apple Watch Series 9',
-    href: '#',
-    imageSrc: 'https://tailwindcss.com/plus-assets/img/ecommerce-images/category-page-04-image-card-01.jpg',
-    imageAlt: "Apple Watch Series 9",
-    price: '$2.800.000',
-    color: 'Negro',
-  },
-  {
-    id: 6,
-    name: 'iMac 24"',
-    href: '#',
-    imageSrc: 'https://tailwindcss.com/plus-assets/img/ecommerce-images/category-page-04-image-card-02.jpg',
-    imageAlt: "iMac de 24 pulgadas",
-    price: '$7.500.000',
-    color: 'Azul',
-  },
-  {
-    id: 7,
-    name: 'Mac mini',
-    href: '#',
-    imageSrc: 'https://tailwindcss.com/plus-assets/img/ecommerce-images/category-page-04-image-card-03.jpg',
-    imageAlt: "Mac mini con chip M2",
-    price: '$4.200.000',
-    color: 'Gris espacial',
-  },
-  {
-    id: 8,
-    name: 'HomePod mini',
-    href: '#',
-    imageSrc: 'https://tailwindcss.com/plus-assets/img/ecommerce-images/category-page-04-image-card-04.jpg',
-    imageAlt: "HomePod mini con Siri",
-    price: '$800.000',
-    color: 'Naranja',
-  }
-]
+import { useProductStore } from '@/stores/products.js'
+import { storeToRefs } from 'pinia'
+
+const productStore = useProductStore()
+const { getAllProducts } = storeToRefs(productStore)
+const products = getAllProducts
 </script>
 
 <style scoped>
