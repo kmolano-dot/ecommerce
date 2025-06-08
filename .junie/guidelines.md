@@ -1,0 +1,5 @@
+- Estamos usando vue 3, usalo para generar el codigo
+- Para el css estamos usando tailwind 4
+- Los componentes que creen solo deben ser responsivos para pantallas de computadores, no quiero crear componentes ni vistan para celulares o tablets.
+- Cando edites un componente si tiene css para pantallas de telefono o tablet borralo, solo nos interesa resolucion de computadores.
+- Explica en el español el paso a paso de lo que estes haciendo siempre

@@ -121,7 +121,7 @@ const products = [
     color: 'Oro rosa',
     price: '$5.700.000',
     quantity: 1,
-    imageSrc: 'src/assets/IIphone.webp',
+    imageSrc: 'src/assets/Iphone.webp',
     imageAlt: 'Latest iPhone model with advanced camera system.',
   },
   // More products can be added here

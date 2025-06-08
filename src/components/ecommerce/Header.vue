@@ -42,7 +42,6 @@
 
         <router-link to="/" class="text-sm/6 font-semibold text-gray-900">Inicio</router-link>
         <router-link to="/products" class="text-sm/6 font-semibold text-gray-900">Productos</router-link>
-        <a href="#" class="text-sm/6 font-semibold text-gray-900" @click.prevent="toggleShoppingCart">Company</a>
         <svg @click.prevent="toggleShoppingCart" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
           <path d="M7 18c-1.104 0-1.99.896-1.99 2s.886 2 1.99 2 2-.896 2-2-.896-2-2-2zm10 0c-1.104 0-1.99.896-1.99 2s.886 2 1.99 2 2-.896 2-2-.896-2-2-2zM7.16 13l.94 2h9.18c.76 0 1.43-.43 1.75-1.1l3.6-7.59c.08-.14.12-.3.12-.46 0-.55-.45-1-1-1H5.21L4.27 2H1v2h2l3.6 7.59-.95 1.72C5.23 13.37 5 14 5 14.66V16h2v-1.34c0-.12.04-.23.1-.32l.06-.1h9.44l-1.1 2H8.03l-.87-1.8-.68-1.26-.35-.6-.97-1.74z"/>
         </svg>
@@ -78,7 +77,11 @@
               </Disclosure>
               <router-link to="/" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Inicio</router-link>
               <router-link to="/products" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Productos</router-link>
-              <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50" @click.prevent="toggleShoppingCart">Company</a>
+              <div class="-mx-3 flex items-center px-3 py-2">
+                <svg @click.prevent="toggleShoppingCart" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" class="text-gray-900 hover:text-gray-700 cursor-pointer">
+                  <path d="M7 18c-1.104 0-1.99.896-1.99 2s.886 2 1.99 2 2-.896 2-2-.896-2-2-2zm10 0c-1.104 0-1.99.896-1.99 2s.886 2 1.99 2 2-.896 2-2-.896-2-2-2zM7.16 13l.94 2h9.18c.76 0 1.43-.43 1.75-1.1l3.6-7.59c.08-.14.12-.3.12-.46 0-.55-.45-1-1-1H5.21L4.27 2H1v2h2l3.6 7.59-.95 1.72C5.23 13.37 5 14 5 14.66V16h2v-1.34c0-.12.04-.23.1-.32l.06-.1h9.44l-1.1 2H8.03l-.87-1.8-.68-1.26-.35-.6-.97-1.74z"/>
+                </svg>
+              </div>
             </div>
             <div class="py-6">
               <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Log in</a>
